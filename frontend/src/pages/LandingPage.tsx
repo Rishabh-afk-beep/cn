@@ -1,0 +1,182 @@
+import { Link } from "react-router-dom";
+
+import { Reveal } from "../components/ui/Reveal";
+
+const featureCards = [
+  {
+    icon: "🎓",
+    title: "College-first discovery",
+    description: "Start with your campus, then filter by radius, rent, and amenities in seconds.",
+  },
+  {
+    icon: "🛡️",
+    title: "Trusted moderation",
+    description: "Every listing is reviewed with admin approval before going live.",
+  },
+  {
+    icon: "📊",
+    title: "Owner-ready dashboard",
+    description: "Owners can publish, update availability, and track demand from students directly.",
+  },
+];
+
+const quickStats = [
+  { label: "Verified Listings", value: "500+", icon: "🏠" },
+  { label: "Colleges Covered", value: "50+", icon: "🎓" },
+  { label: "Students Trust Us", value: "10K+", icon: "💛" },
+  { label: "Cities Active", value: "12+", icon: "📍" },
+];
+
+export function LandingPage() {
+  return (
+    <main>
+      {/* ── Hero Section ── */}
+      <section className="relative overflow-hidden" style={{ background: "var(--gradient-hero-subtle)" }}>
+        {/* Floating glow shapes */}
+        <div className="hero-glow hero-glow-amber animate-float" style={{ width: 400, height: 400, top: -80, right: -60 }} />
+        <div className="hero-glow hero-glow-gold animate-float" style={{ width: 300, height: 300, bottom: 40, left: -40, animationDelay: "2s" }} />
+        <div className="hero-glow hero-glow-warm animate-float" style={{ width: 200, height: 200, top: "40%", right: "30%", animationDelay: "4s" }} />
+
+        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-[1.3fr_1fr] md:py-28">
+          <div className="animate-rise">
+            <p
+              className="mb-4 inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-widest"
+              style={{
+                background: "var(--glass-bg)",
+                backdropFilter: "blur(12px)",
+                border: "1px solid var(--glass-border)",
+                color: "var(--primary)",
+              }}
+            >
+              <span>✨</span> Student housing, upgraded
+            </p>
+            <h1
+              className="max-w-xl text-5xl font-black leading-[1.1] md:text-6xl"
+              style={{ color: "var(--on-surface)", letterSpacing: "-0.02em" }}
+            >
+              Find your next place near campus{" "}
+              <span style={{ color: "var(--primary-container)" }}>without the broker chaos.</span>
+            </h1>
+            <p className="mt-5 max-w-xl text-lg leading-8" style={{ color: "var(--on-surface-variant)" }}>
+              CollegePG helps students discover nearby PGs, flats, hostels, single rooms, and co-living options with
+              real filters and direct owner contact.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link to="/discover" className="btn-primary">
+                Start Discovering
+              </Link>
+              <Link to="/login" className="btn-ghost">
+                List as Owner →
+              </Link>
+            </div>
+          </div>
+
+          {/* Stats card */}
+          <div className="animate-rise-delayed glass-card-static p-6">
+            <p
+              className="mb-5 text-xs font-bold uppercase tracking-widest"
+              style={{ color: "var(--outline)", letterSpacing: "0.1em" }}
+            >
+              At a glance
+            </p>
+            <div className="grid grid-cols-2 gap-4">
+              {quickStats.map((item) => (
+                <article
+                  key={item.label}
+                  className="rounded-2xl p-5 transition-all duration-200 hover:scale-[1.02]"
+                  style={{ background: "var(--surface-container-low)" }}
+                >
+                  <span className="text-2xl">{item.icon}</span>
+                  <p className="mt-2 text-2xl font-black" style={{ color: "var(--on-surface)" }}>
+                    {item.value}
+                  </p>
+                  <p className="mt-1 text-xs font-semibold" style={{ color: "var(--outline)" }}>
+                    {item.label}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Features Section ── */}
+      <Reveal className="mx-auto max-w-6xl px-6 py-20" delayMs={80}>
+        <div className="mb-8 flex items-end justify-between gap-4">
+          <div>
+            <p
+              className="mb-2 text-xs font-bold uppercase tracking-widest"
+              style={{ color: "var(--primary)" }}
+            >
+              Why choose us
+            </p>
+            <h2 className="text-3xl font-black md:text-4xl" style={{ color: "var(--on-surface)" }}>
+              Why this feels different
+            </h2>
+          </div>
+          <Link
+            to="/discover"
+            className="text-sm font-bold transition-colors hover:opacity-80"
+            style={{ color: "var(--primary)" }}
+          >
+            Explore inventory →
+          </Link>
+        </div>
+        <div className="grid gap-6 md:grid-cols-3">
+          {featureCards.map((card, index) => (
+            <article key={card.title} className="glass-card p-7">
+              <div
+                className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl text-xl"
+                style={{ background: "var(--primary-fixed)" }}
+              >
+                {card.icon}
+              </div>
+              <p
+                className="text-xs font-bold uppercase tracking-widest"
+                style={{ color: "var(--outline)", letterSpacing: "0.05em" }}
+              >
+                0{index + 1}
+              </p>
+              <h3 className="mt-2 text-xl font-black" style={{ color: "var(--on-surface)" }}>
+                {card.title}
+              </h3>
+              <p className="mt-3 text-sm leading-7" style={{ color: "var(--on-surface-variant)" }}>
+                {card.description}
+              </p>
+            </article>
+          ))}
+        </div>
+      </Reveal>
+
+      {/* ── CTA Banner ── */}
+      <Reveal className="mx-auto max-w-6xl px-6 pb-8" delayMs={140}>
+        <div className="section-dark relative overflow-hidden">
+          {/* Glow accent */}
+          <div
+            className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full opacity-20"
+            style={{ background: "var(--primary-fixed-dim)", filter: "blur(60px)" }}
+          />
+          <div className="relative z-10">
+            <h3 className="text-3xl font-black" style={{ color: "var(--inverse-on-surface)" }}>
+              Ready to launch your housing search?
+            </h3>
+            <p className="mt-3 max-w-2xl text-base leading-7" style={{ color: "var(--inverse-on-surface)", opacity: 0.7 }}>
+              Use advanced filters, compare options by distance and rent, and contact owners directly without waiting on
+              fragmented WhatsApp groups.
+            </p>
+            <Link
+              to="/discover"
+              className="mt-6 inline-flex rounded-full px-8 py-4 text-sm font-black transition hover:scale-[1.02]"
+              style={{
+                background: "var(--primary-fixed-dim)",
+                color: "var(--on-primary-container)",
+              }}
+            >
+              Open Discover Page →
+            </Link>
+          </div>
+        </div>
+      </Reveal>
+    </main>
+  );
+}

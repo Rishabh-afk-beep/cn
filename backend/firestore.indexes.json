@@ -1,0 +1,71 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "properties",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "primary_college_id", "order": "ASCENDING" },
+        { "fieldPath": "approval_status", "order": "ASCENDING" },
+        { "fieldPath": "visibility_status", "order": "ASCENDING" },
+        { "fieldPath": "property_type", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "properties",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "owner_uid", "order": "ASCENDING" },
+        { "fieldPath": "updated_at", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "reviews",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "property_id", "order": "ASCENDING" },
+        { "fieldPath": "created_at", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "shortlists",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "user_uid", "order": "ASCENDING" },
+        { "fieldPath": "created_at", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "recent_views",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "user_uid", "order": "ASCENDING" },
+        { "fieldPath": "viewed_at", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "alerts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "user_uid", "order": "ASCENDING" },
+        { "fieldPath": "active", "order": "ASCENDING" },
+        { "fieldPath": "updated_at", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "inquiries",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "owner_uid", "order": "ASCENDING" },
+        { "fieldPath": "created_at", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "admin_logs",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "created_at", "order": "DESCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

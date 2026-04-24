@@ -1,0 +1,599 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ══════════════════════════════════════════════════════════════════
+   AUREATE LIVING — Design System Tokens
+   Based on Stitch "The Golden Standard" / CollegePG
+   ══════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Core palette ── */
+  --primary: #855300;
+  --primary-container: #F59E0B;
+  --primary-fixed: #ffddb8;
+  --primary-fixed-dim: #ffb95f;
+  --on-primary: #ffffff;
+  --on-primary-container: #613b00;
+
+  --secondary: #5f5e5e;
+  --secondary-container: #e2dfde;
+  --on-secondary: #ffffff;
+
+  --tertiary: #904d00;
+  --tertiary-container: #ff9837;
+  --tertiary-fixed: #ffdcc3;
+
+  --surface: #faf9f8;
+  --surface-container: #eeeeed;
+  --surface-container-low: #f4f3f2;
+  --surface-container-high: #e9e8e7;
+  --surface-container-highest: #e3e2e1;
+  --surface-container-lowest: #ffffff;
+  --surface-dim: #dadad9;
+  --surface-tint: #855300;
+
+  --on-surface: #1a1c1c;
+  --on-surface-variant: #534434;
+
+  --outline: #867461;
+  --outline-variant: #d8c3ad;
+
+  --inverse-surface: #2f3130;
+  --inverse-on-surface: #f1f0f0;
+  --inverse-primary: #ffb95f;
+
+  --error: #ba1a1a;
+  --error-container: #ffdad6;
+
+  --success: #10b981;
+  --success-container: #d1fae5;
+
+  /* ── Ambient shadow ── */
+  --shadow-ambient: 0 12px 40px 0 rgba(26, 28, 28, 0.06);
+  --shadow-hover: 0 20px 50px -12px rgba(133, 83, 0, 0.15);
+  --shadow-card: 0 4px 24px -4px rgba(26, 28, 28, 0.08);
+
+  /* ── Glass effect ── */
+  --glass-bg: rgba(255, 255, 255, 0.80);
+  --glass-blur: 20px;
+  --glass-border: rgba(216, 195, 173, 0.20);
+
+  /* ── Gradients ── */
+  --gradient-amber: linear-gradient(135deg, #855300, #F59E0B);
+  --gradient-hero: linear-gradient(135deg, #fef3c7 0%, #fde68a 30%, #fbbf24 60%, #f59e0b 100%);
+  --gradient-hero-subtle: linear-gradient(160deg, rgba(245, 158, 11, 0.08) 0%, rgba(255, 185, 95, 0.05) 50%, transparent 100%);
+
+  /* ── Spacing ── */
+  --space-section: 80px;
+  --space-card: 24px;
+
+  color: var(--on-surface);
+  background: var(--surface);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ── Dark mode tokens ── */
+:root.dark {
+  --primary: #ffb95f;
+  --primary-container: #653e00;
+  --primary-fixed: #ffddb8;
+  --primary-fixed-dim: #ffb95f;
+  --on-primary: #442b00;
+  --on-primary-container: #ffddb8;
+
+  --secondary: #c8c6c5;
+  --secondary-container: #474746;
+  --on-secondary: #303030;
+
+  --tertiary: #ffb77d;
+  --tertiary-container: #6e3900;
+
+  --surface: #0f172a;
+  --surface-container: #1a1c2e;
+  --surface-container-low: #131525;
+  --surface-container-high: #222438;
+  --surface-container-highest: #2a2d42;
+  --surface-container-lowest: #0a0c1a;
+  --surface-dim: #1a1c1c;
+  --surface-tint: #ffb95f;
+
+  --on-surface: #e3e2e1;
+  --on-surface-variant: #d8c3ad;
+
+  --outline: #9d8a79;
+  --outline-variant: #534434;
+
+  --inverse-surface: #e3e2e1;
+  --inverse-on-surface: #2f3130;
+  --inverse-primary: #855300;
+
+  --shadow-ambient: 0 12px 40px 0 rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 20px 50px -12px rgba(255, 185, 95, 0.2);
+  --shadow-card: 0 4px 24px -4px rgba(0, 0, 0, 0.25);
+
+  --glass-bg: rgba(15, 23, 42, 0.80);
+  --glass-border: rgba(83, 68, 52, 0.25);
+
+  --gradient-amber: linear-gradient(135deg, #ffb95f, #F59E0B);
+  --gradient-hero: linear-gradient(135deg, #1a1c2e 0%, #222438 50%, #2a2d42 100%);
+  --gradient-hero-subtle: linear-gradient(160deg, rgba(255, 185, 95, 0.06) 0%, rgba(245, 158, 11, 0.03) 50%, transparent 100%);
+
+  color: var(--on-surface);
+  background: var(--surface);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   BASE RESETS
+   ══════════════════════════════════════════════════════════════════ */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--surface);
+  color: var(--on-surface);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   GLASS CARD SYSTEM — "The Glass Folio"
+   ══════════════════════════════════════════════════════════════════ */
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-card);
+  transition: transform 280ms cubic-bezier(0.22, 0.61, 0.36, 1),
+              box-shadow 280ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.glass-card-static {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-card);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   CARD HOVER — Enhanced "Float" Effect
+   ══════════════════════════════════════════════════════════════════ */
+
+.card-float {
+  transition: transform 280ms cubic-bezier(0.22, 0.61, 0.36, 1),
+              box-shadow 280ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.card-float:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   BUTTONS — "Interaction Signature"
+   ══════════════════════════════════════════════════════════════════ */
+
+.btn-primary {
+  background: var(--gradient-amber);
+  color: var(--on-primary);
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 14px 32px;
+  font-size: 0.875rem;
+  letter-spacing: 0.01em;
+  border: none;
+  cursor: pointer;
+  transition: transform 200ms ease, box-shadow 200ms ease, filter 200ms ease;
+  box-shadow: 0 4px 16px -4px rgba(133, 83, 0, 0.35);
+}
+
+.btn-primary:hover {
+  transform: scale(1.02) translateY(-1px);
+  box-shadow: 0 8px 24px -4px rgba(133, 83, 0, 0.4);
+  filter: brightness(1.08);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background: var(--surface-container-high);
+  color: var(--on-surface);
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 14px 32px;
+  font-size: 0.875rem;
+  border: none;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.btn-secondary:hover {
+  background: var(--primary-fixed-dim);
+  color: var(--on-primary-container);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--on-surface);
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  font-size: 0.875rem;
+  border: 1px solid var(--glass-border);
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.btn-ghost:hover {
+  background: var(--surface-container-low);
+  border-color: var(--outline);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   BADGES — Pill-shaped Tonal Badges
+   ══════════════════════════════════════════════════════════════════ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.badge-amber {
+  background: var(--primary-fixed);
+  color: var(--on-primary-container);
+}
+
+.badge-violet {
+  background: #ede9fe;
+  color: #5b21b6;
+}
+
+.dark .badge-violet {
+  background: rgba(91, 33, 182, 0.2);
+  color: #c4b5fd;
+}
+
+.badge-emerald {
+  background: var(--success-container);
+  color: #065f46;
+}
+
+.dark .badge-emerald {
+  background: rgba(16, 185, 129, 0.15);
+  color: #6ee7b7;
+}
+
+.badge-rose {
+  background: var(--error-container);
+  color: #9f1239;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   INPUTS — Minimalist "Ghost Border" Style
+   ══════════════════════════════════════════════════════════════════ */
+
+.input-field {
+  width: 100%;
+  padding: 14px 18px;
+  background: var(--surface-container);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.875rem;
+  color: var(--on-surface);
+  transition: all 200ms ease;
+  outline: none;
+}
+
+.input-field::placeholder {
+  color: var(--outline);
+}
+
+.input-field:focus {
+  background: var(--surface-container-highest);
+  border-color: transparent;
+  box-shadow: 0 0 0 2px rgba(133, 83, 0, 0.15);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   ANIMATIONS — Premium Micro-Interactions
+   ══════════════════════════════════════════════════════════════════ */
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-rise {
+  animation: rise 600ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.animate-rise-delayed {
+  animation: rise 800ms cubic-bezier(0.22, 0.61, 0.36, 1) 150ms both;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.animate-slide-in {
+  animation: slide-in-right 500ms ease-out;
+}
+
+.animate-scale-in {
+  animation: scale-in 300ms ease-out;
+}
+
+.animate-toast-in {
+  animation: toast-in 200ms ease-out;
+}
+
+/* ── Reveal (IntersectionObserver) ── */
+
+.reveal-hide {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.reveal-show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 500ms cubic-bezier(0.22, 0.61, 0.36, 1),
+              transform 500ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* ── Skeleton shimmer ── */
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, var(--surface-container) 25%, var(--surface-container-low) 50%, var(--surface-container) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 12px;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   DARK MODE OVERRIDES — Tonal Adjustments
+   ══════════════════════════════════════════════════════════════════ */
+
+.dark .bg-white {
+  background-color: var(--surface-container-lowest) !important;
+}
+
+.dark .text-slate-900 {
+  color: var(--on-surface) !important;
+}
+
+.dark .text-slate-700,
+.dark .text-slate-600,
+.dark .text-slate-500 {
+  color: var(--on-surface-variant) !important;
+}
+
+.dark .border-slate-200,
+.dark .border-slate-300 {
+  border-color: var(--outline-variant) !important;
+}
+
+.dark .bg-slate-50,
+.dark .bg-slate-100 {
+  background-color: var(--surface-container) !important;
+}
+
+.dark .bg-amber-100 {
+  background-color: rgba(133, 83, 0, 0.2) !important;
+}
+
+.dark .text-amber-700,
+.dark .text-amber-800 {
+  color: var(--primary-fixed-dim) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   FOCUS & INTERACTION
+   ══════════════════════════════════════════════════════════════════ */
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   SCROLLBAR — Refined
+   ══════════════════════════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--outline-variant);
+  border-radius: 999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--outline-variant);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   SELECTION — Amber highlight
+   ══════════════════════════════════════════════════════════════════ */
+
+::selection {
+  background: rgba(245, 158, 11, 0.30);
+  color: var(--on-surface);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   IMAGES — Smooth loading
+   ══════════════════════════════════════════════════════════════════ */
+
+img {
+  transition: opacity 300ms ease;
+}
+
+img[loading] {
+  opacity: 0;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   STAT CARD — Accent effect
+   ══════════════════════════════════════════════════════════════════ */
+
+.stat-card {
+  background: var(--surface-container-lowest);
+  border-radius: 20px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.stat-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-amber);
+  border-radius: 20px 20px 0 0;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   SECTION DIVIDER — Tonal Shift (No Lines)
+   ══════════════════════════════════════════════════════════════════ */
+
+.section-tonal {
+  background: var(--surface-container-low);
+  border-radius: 28px;
+  padding: 40px;
+}
+
+.section-dark {
+  background: var(--inverse-surface);
+  color: var(--inverse-on-surface);
+  border-radius: 28px;
+  padding: 48px;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   HERO GLOW SHAPES — Floating decorative elements
+   ══════════════════════════════════════════════════════════════════ */
+
+.hero-glow {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(60px);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.hero-glow-amber {
+  background: rgba(245, 158, 11, 0.35);
+}
+
+.hero-glow-gold {
+  background: rgba(255, 185, 95, 0.30);
+}
+
+.hero-glow-warm {
+  background: rgba(255, 152, 55, 0.25);
+}

@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+
+# Environment
+.env
+backend/.env
+mobile/.env
+
+# Firebase service account (sensitive!)
+firebase-service-account.json
+backend/firebase-service-account.json
+
+# Node
+node_modules/
+.expo/
+dist/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+*.apk
+*.aab
+*.ipa

@@ -1,0 +1,305 @@
+
+
+--- PAGE 1 ---
+
+This product is a student-focused rental marketplace for nding PGs, ats, hostels, single
+rooms, co-living spaces, and small rental properties near selected colleges. The V1 is focused
+on helping students quickly discover nearby housing and helping owners list veried
+properties with admin approval before listings go live.
+The product will launch as a usable V1 with a web frontend built using Vite + React + Tailwind,
+a React Native mobile app, a FastAPI backend, Firebase Authentication, Firestore, Cloudinary
+for images, and OpenStreetM ap + Leaet for maps.[cite:29][cite:31][cite:37]
+Students searching for housing near colleges often rely on W hatsApp groups, brokers,
+scattered listings, and incomplete local references. This makes it hard to compare options by
+distance, rent, room sharing type, amenities, and trustworthiness.
+Property owners also face a fragmented process. They do not have a simple way to list
+college-nearby properties, manage inquiries, update availability, and reach veried student
+demand in one place.
+The product solves this by creating a college-rst marketplace where users choose a college
+rst, then discover rental inventory within a dened radius with structured listing information
+and direct owner contact.
+Help students nd nearby rental options faster.
+Help owners publish and manage listings without broker dependency.
+Give admins full control over listing quality, fraud prevention, college master data, and
+platform moderation.
+Launch a focused V1 without building unnecessary communication or nancial tools.
+The following are explicitly out of scope for V1:
+In-app chat.
+Rent payment collection.
+Digital rent agreement generation.
+Roommate matching.
+Product Requirem ents Docum ent (PRD)
+Product overview
+Problem statement
+Goals
+Non-goals
+
+--- PAGE 2 ---
+
+Referral or reward programs.
+Advanced recommendation engine.
+Complex brokerage workows.
+M ulti-city expansion workows beyond the initial college-led launch structure.
+Full property management software for landlords.
+Students want aordable, nearby, trustworthy accommodation near their college. They care
+most about distance from college, rent, sharing type, amenities, food availability, and direct
+contact with the owner.
+Owners include PG operators, at owners, hostel managers, and single-room landlords. They
+want a fast way to create listings, upload photos, update availability, and receive inquiries
+from relevant students.
+Admins need a complete control panel to approve listings, manage colleges, moderate users,
+handle spam, and monitor platform health. Admin is a high-trust internal role and must have
+full visibility across students, owners, and listings.
+There will be three login roles in V1:
+Admin
+Student
+Owner
+A single Firebase Authentication system will be used for login, and role access will be
+enforced in the backend and app logic using role data stored against the user prole.[cite:31]
+[cite:37]
+. Open app or website.
+. Select college.
+. Apply radius, property type, budget, gender, and amenity lters.
+Target users
+Students / tenants
+Owners
+Admins
+User roles
+Core user ows
+Student ow
+
+--- PAGE 3 ---
+
+. Browse listing cards sorted by nearest, price, newest, or rating.
+. Open listing details.
+. Review photos, room options, rent, deposit, rules, amenities, food details, availability,
+reviews, and map location.
+. Call or W hatsApp owner directly.
+. Optionally log in to shortlist listings, save alerts, submit inquiries, and leave reviews after
+move-in.
+. Log in using phone OTP or approved authentication method.
+. Complete owner prole and property identity details.
+. Create new listing.
+. Choose property type.
+. Fill dynamic form elds based on the selected property type.
+. Upload photos.
+. Set map pin and address.
+. Submit listing for review.
+. Track inquiries and listing status from dashboard.
+. Edit listing, mark occupied, or mark available.
+. Log in as admin.
+. Review pending owner and listing submissions.
+. Approve, reject, or ag listings.
+. M anage colleges and searchable college metadata.
+. View users by role.
+. M ark listings as featured.
+. Remove spam or fraudulent content.
+. Review platform analytics and operational metrics.
+College selector as the rst search control.
+Radius lter from selected college.
+Property type lter for PG, Flat, Shop to Rent, Hostel, Single Room, and Co-living.
+Owner ow
+Admin ow
+V1 feature list
+Student-facing M VP features
+
+--- PAGE 4 ---
+
+Gender lter for relevant property types.
+Budget range lter.
+Amenity lters including Food, W iFi, AC, Parking, Laundry, Geyser, and CCTV.
+Sort by price, distance, newest, and rating.
+Listing cards with essential summary details.
+Listing detail page with photos, distance, room options, rent, deposit, amenities, food
+details, owner contact, map, reviews, and availability.
+Call owner and W hatsApp owner actions.
+Student login.
+Shortlist / save listing.
+Recently viewed listings.
+Inquiry form or action from listing page.
+Listing alerts based on saved search conditions.
+Review submission after move-in or veried stay policy.
+Owner login.
+Owner prole setup.
+Dynamic listing form based on property type.
+Photo upload with compression through Cloudinary.
+Location pin selection using map tools.
+Listing submit, edit, and delete.
+M ark listing as Available or Occupied.
+Dashboard with views and inquiries.
+Admin login.
+Dashboard overview.
+Approve / reject listings.
+M anage all users.
+M anage all listings.
+Add, edit, and disable colleges.
+M ark listing as featured.
+Remove spam or fake listings.
+View analytics including top colleges, top searched areas, listing views, and inquiry
+volume.
+Owner-facing M VP features
+Admin M VP features
+
+--- PAGE 5 ---
+
+These should be planned for later, not built in V1:
+M ap-rst search page with all live listing pins.
+In-app chat.
+Digital rent agreement PDF generator.
+Roommate nder.
+Referral program.
+Paid owner plans and billing automation.
+Advanced recommendations and ranking personalization.
+Rich owner CRM  and follow-up workows.
+User must select a college before distance-based browsing begins.
+Radius lter must support 0 .5 km, 1 km, 2 km, and 5 km options.
+Listings must display computed distance from the selected college.
+Search should support ltering by category, budget, amenities, and gender where
+relevant.
+Sorting must be available by nearest, lowest price, newest, and highest rated.
+Each listing should support:
+3 to 5 swipeable images at minimum display level.
+Property name.
+Property type badge.
+Distance from selected college.
+Room options and pricing table.
+M onthly rent and security deposit.
+Full amenities list.
+Food menu or food availability details where relevant.
+Owner name and contact methods.
+M ap location.
+Ratings and reviews.
+Availability status.
+Future features
+Functional requirements
+Search and discovery
+Listing details
+
+--- PAGE 6 ---
+
+House rules.
+Gender.
+Food included or not.
+M ess timing.
+Gate timing.
+W arden contact.
+BHK type.
+Furnished / semi-furnished / unfurnished.
+Floor.
+Lift availability.
+Society name.
+Area in sq ft.
+Floor.
+Allowed use type.
+M aintenance charge.
+Total capacity.
+Study hall availability.
+Curfew time.
+W arden on-site status.
+Attached or shared bathroom.
+Kitchen access.
+Furnished status.
+Property-specic elds
+PG
+Flat
+Shop
+Hostel
+Single Room
+
+--- PAGE 7 ---
+
+Community events.
+Co-working availability.
+M inimum stay duration.
+Student and owner access must use Firebase Authentication.[cite:30 ][cite:31]
+Admin login must be protected and restricted to approved admin accounts.[cite:31]
+Role checks must be enforced in backend APIs.[cite:31][cite:34]
+Logged-out users may browse public listings and contact owners directly.
+Logged-in users are required for shortlisting, alerts, reviews, and owner dashboards.
+Free analytics must track at minimum:
+Daily active users.
+Listing views.
+College searches.
+Inquiry actions.
+Shortlist actions.
+Owner listing submissions.
+Admin approvals and rejections.
+Firebase Analytics is a practical free t for this stack, especially because it integrates with
+Firebase-backed apps and event tracking workows.[cite:30 ][cite:36]
+No listings found for selected college and radius.
+College exists but no active inventory in chosen property type.
+Listing marked available but all room options lled.
+Duplicate owner accounts using same phone number.
+Owner starts a listing but leaves required elds incomplete.
+Uploaded images fail or exceed le limits.
+M ap pin placed far away from typed address.
+College coordinates missing or incorrect, causing wrong distance calculation.
+Reviews submitted by users who never stayed there.
+Owner deletes listing after receiving shortlists or inquiries.
+Co-living
+Authentication and roles
+Analytics
+Edge cases
+
+--- PAGE 8 ---
+
+Spam or misleading listings created by fake owners.
+Properties with missing deposit, room pricing, or amenity data.
+One property matching multiple property-type interpretations.
+Student tries to shortlist or review without login.
+Admin rejects a listing that is already visible due to sync delay.
+Owner changes property type after entering type-specic elds.
+College selection must be obvious and be the starting point of discovery.
+Search and lter interactions must be usable on both mobile web and app.
+Listing pages must prioritize rent, distance, room type, and contact actions above less
+critical details.
+Contact owner actions should be available without forcing login.
+Forms for owners should show only relevant elds for the selected property type.
+Admin workows should reduce manual eort for approval and moderation.
+Every owner-submitted listing must remain in pending review until admin approval.
+Listings must have approval status and visibility status as separate elds.
+Colleges must be manageable by admin from a master data panel.
+User role, user status, and listing moderation logs should be stored for operational
+traceability.
+Images should be stored via Cloudinary to reduce asset load and support compressed
+delivery.
+Number of active listings per college.
+Number of active student users.
+Number of active owners.
+Search-to-listing-view conversion rate.
+Usability requirements
+Data and moderation requirements
+Success metrics
+Adoption metrics
+
+--- PAGE 9 ---
+
+Average listing views per active user.
+Shortlist rate.
+Inquiry rate per listing view.
+Return visits from students.
+Listing approval rate.
+Percentage of listings with complete data.
+Percentage of listings with at least 3 valid photos.
+M edian time from owner submission to admin approval.
+Number of available listings by college.
+Student inquiry to owner response rate.
+Fake or spam listing removal rate.
+Percentage of stale listings older than a dened freshness threshold.
+V1 should focus on one clear promise: students can nd nearby rental options around a
+selected college and directly contact owners, while owners can list and manage inventory
+under admin moderation. This means V1 should prioritize searchable inventory, clean listing
+pages, owner submission tools, and a complete admin panel, while postponing chat, rent
+agreements, referral systems, and other expansion features.
+These decisions should be nalized before development begins:
+W hether student login supports both Google and phone OTP in V1, or only one method
+rst.
+W hether owner registration requires manual verication before rst listing.
+W hether reviews require admin approval.
+W hether alerts are email-based, app-based, or dashboard-only in V1.
+W hether shops should remain in V1 if the rst launch is strictly student housing focused.
+Engagement metrics
+Supply quality metrics
+M arketplace health metrics
+V1 release scope summary
+Open product decisions

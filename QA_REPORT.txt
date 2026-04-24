@@ -1,0 +1,24 @@
+CollegePG QA Report
+Date: 2026-04-16
+
+Service Status
+- Backend Health: PASS (status=ok)
+- Frontend Root: PASS (status=200)
+
+Public and Guest API Checks
+- Public Search: PASS (total=3)
+- Guest Inquiry: PASS (inquiry_id=inquiry_ee59a47e9f)
+
+Authenticated Role Checks (Dev JWT)
+- Owner Create Property: PASS (property_id=property_owner_demo_1776338366)
+- Admin Pending Queue: PASS (count=2)
+- Admin Logs: PASS (count=1)
+- Student Create Alert: PASS (alert_id=alert_966f3b1b86)
+
+Frontend Route Checks
+- Owner Dashboard Route: PASS (status=200)
+- Admin Dashboard Route: PASS (status=200)
+
+Notes
+- Authenticated checks were executed using tokens from backend/scripts/generate_dev_tokens.py.
+- Backend and frontend were both live during this run.

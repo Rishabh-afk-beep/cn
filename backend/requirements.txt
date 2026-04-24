@@ -1,0 +1,9 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic-settings==2.7.0
+firebase-admin==6.6.0
+google-cloud-firestore==2.19.0
+cloudinary==1.42.2
+python-dotenv==1.0.1
+httpx==0.28.1
+PyJWT==2.10.1
