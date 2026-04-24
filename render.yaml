@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: collegepg-api
+    runtime: docker
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: APP_NAME
+        value: CollegePG API
+      - key: APP_ENV
+        value: production
+      - key: ALLOWED_ORIGINS
+        value: "*"
+      - key: FIREBASE_PROJECT_ID
+        value: urbanpg-a7198
+      - key: GOOGLE_APPLICATION_CREDENTIALS
+        value: firebase-service-account.json
+      - key: DEV_AUTH_ENABLED
+        value: "false"
+      - key: ADMIN_ALLOWED_EMAILS
+        value: "ashrafmaliknadaf5@gmail.com,ranjanrishabh2004@gmail.com,rishabhl.23.beis@acharya.ac.in"
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false

@@ -9,7 +9,10 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY app ./app
-COPY firebase-service-account.json ./firebase-service-account.json
+
+# Copy service account if present (for local Docker builds)
+# On Render, use Secret Files to mount this at /app/firebase-service-account.json
+COPY firebase-service-account.jso[n] ./
 
 EXPOSE 8000
 
